@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<!-- Make a table :
+Left column has the main parameter, e.g. wind and a related color, following columns contain related data, e.g. wind graph and wind rose -->
+
+
+<head>
+    <title>Avalanche Data Watch</title>
+</head>
+<body>
+    <h1>Region template</h1>
+  
+  <div>
+  	One page that contains weather observations and snow observations for a forecasting region (or polygon) for defined time periods (last day to last week). 
+  	<br>
+  	Note: examples on this page are partially static.
+    <br>
+    Sources: www.xgeo.no, www.regobs.no, www.eklima.no, alpine resorts, web cams, www.skiinfo.no, www.snow-forcast.com/www.mountain-forecast.com  
+    
+    static xgeo maps for important themes over the period -3d to +2d
+  </div>  
+    
+  <div>
+    <h2>Precipitation</h2>
+     (all stations - separate between those with hourly and daily measuremnets - add text box showing accumulated precipitation last 1d/3d beside each graph)
+    <!--  Replace URl by variable later: {{ precip_obs_url }} -->
+	<!--
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54600.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=54600.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=25100.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=25100.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=24960.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=24960.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    -->
+	<img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=24890.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=24890.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <!--
+	<img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=23160.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=23160.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=22840.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=22840.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54420.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=55200.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54710.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=54710.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54320.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=54320.0,rt=1:00,mth=sum,cht=col,clr=blue">
+    -->
+	<img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54110.17,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=54110.0,rt=1:00,mth=sum,cht=col,clr=blue">
+  </div>
+  
+  <div>
+    <h2>Wind</h2>
+    <!--  Replace URl by variable later: {{ wind_obs_url }} -->
+    
+    <table border="1">
+  <tr>
+    <th>Wind graph (last week)</th>
+    <th>Wind rose (3d)</th>
+    <th>Wind rose (1d)</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=24890.16,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=24890.14,rt=1:0,mth=inst,clr=black,drwd=2" height="400">
+    </td>
+    <td>
+    <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2224890%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-18%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+    <td>
+    <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2224890%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-20%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=54710.16,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=54710.14,rt=1:0,mth=inst,clr=black,drwd=2" height="400">
+    </td>
+    <td>
+      <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2254710%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-18%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+    <td>
+      <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2254710%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-20%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+  </tr>    
+      
+  <tr>
+    <td>
+      <img src="http://h-web01.nve.no/chartserver/ShowChart.aspx?req=getchart&ver=1.0&lang=no&time=-3;0&chd=ds=htsre,id=25110.16,rt=1:0,mth=inst,clr=black,drwd=2|ds=htsre,id=25110.14,rt=1:0,mth=inst,clr=black,drwd=2" height="400">
+    </td>
+    <td>
+      <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2225110%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-18%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+    <td>
+      <img src="http://h-web01.nve.no/seNorgeGraphAppServices/Services/WsKlima.svc/GetWindRose?request={%22stationID%22:%2225110%22,%22maxFF%22:10,%22format%22:%22YYYY-MM-DD%22,%22fromDate%22:%222013-05-20%22,%22toDate%22:%222013-05-21%22,%22months%22:%22%22,%22hours%22:%220,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23%22,%22width%22:1350,%22language%22:%22no%22}" height="400">
+    </td>
+  </tr>
+      
+</table> 
+    
+<div>
+    <h2>RegObs: observations over a certain period</h2>    
+        <iframe src="http://www.regobs.no/Registration/17315" width="600" height="800"></iframe>
+        <iframe src="http://www.regobs.no/Registration/17284" width="600" height="800"></iframe>
+        <iframe src="http://www.regobs.no/Registration/17089" width="600" height="800"></iframe>
+</div>
+    
+    
+  <!-- http://api.nve.no/hydrology/regobs/v0.8.7/Odata.svc/AllRegistrationsV()?$filter=((((cast(GeoHazardTID,'Edm.Int32')) eq 10) and ((cast(LangKey,'Edm.Int32')) eq 1)) and (DtObsTime ge datetime'2013-05-25T12:17:01.7381067%2B02:00')) and ((cast(ForecastRegionTID,'Edm.Int32')) eq 126) -->    
+  <!-- http://api.nve.no/hydrology/regobs/v0.8.7/Odata.svc/AllRegistrationsV()?$filter=(((((cast(RegistrationTID,'Edm.Int32')) eq 21) and ((cast(GeoHazardTID,'Edm.Int32')) eq 10)) and ((cast(LangKey,'Edm.Int32')) eq 1)) and (DtObsTime ge datetime'2013-04-26T20:20:57.8182701%2B02:00')) and ((cast(ForecastRegionTID,'Edm.Int32')) eq 126)  -->
+    
+    
+    
+    <div>
+    <h2>Image galleries showing latest web cam pictures and photos from regobs.no over the last two days</h2>
+    </div>
+    
+	<div>
+	<h2>
+	Weather observations from alpine resorts
+	</h2>
+	<img src="http://www.storefjell.no/veret8.jpg">
+    </div>
+	
+	<div>
+	<h2>
+	Relevant web cams
+	</h2>
+	<img src="http://81.167.44.38/jpg/image.jpg">
+    </div>
+	
+	<div>
+	<h2>
+	regObs images last two days
+	</h2>
+	<img src="http://api.nve.no/hydrology/regobs/v0.8.7/Image/medium/4415">
+	<img src="http://api.nve.no/hydrology/regobs/v0.8.7/Image/medium/4324">
+    </div>
+    
+    <div>
+    <iframe src"http://www.mountain-forecast.com/peaks/Skogshorn/forecasts/1728" width="600"></iframe>
+        
+    </div>
+	
+	
+  </div>
+</body>
+</html>

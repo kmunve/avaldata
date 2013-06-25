@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Avalanche Weather Watch</title>
+</head>
+<body>
+    <h1>{{ TSlegend }}</h1>
+	
+	<table>
+    {% for d, v in TSzipdata %}
+        <tr>
+          <td><b>Date:</b> {{ d }}</td>
+          <td><b>{{ TSname }}:</b> {{ v }} {{ TSunit }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+  <b>Accumulated sum last 3 days:</b> {{ three_days_sum }} {{ TSunit }}
+	<br>
+	<img src="{{ MEDIA_URL }}windspeed.png">
+	
+    <hr>
+    <p>Last updated: {{ update_date }}</p>
+</body>
+</html>

@@ -1,0 +1,3 @@
+
+# Get precipitation data in json format from Hemsedal AWS
+http://h-web01.nve.no/chartserver/ShowData.aspx?req=getchart&ver=1.0&vfmt=json&time=20130416T0000;20130515T0000&chs=10x10&lang=no&chlf=none&chsl=0;+0&chd=ds=htsre,da=29,id=25100.0,rt=1,cht=col,mth=sum,timeo=6:0|ds=htsry,id=metx[25100;0].6001,mth=sum,rt=1,cht=col&nocache=0.20784913911484182
