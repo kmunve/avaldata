@@ -166,6 +166,12 @@ class RegistrationQuery(RegobsQuery):
         self.api_view = "AllRegistrationsV"
         
         
+class SnowCoverQuery(RegobsQuery):
+    def __init__(self):
+        super(SnowCoverQuery, self).__init__()
+        self.api_view = "SnowCoverObsV"
+        
+        
 class AvalancheWarningQuery(RegobsQuery):
     def __init__(self):
         super(AvalancheWarningQuery, self).__init__()

@@ -11,7 +11,10 @@ Created on 14. mai 2013
 import datetime
 # Additional
 import numpy as np
-#import pylab as plt
+
+import matplotlib
+matplotlib.use('Agg') # sets matplotlib to a non-interactive renderer
+import matplotlib.pyplot as plt
 # Own
 
 class TimeSeries(object):
@@ -25,11 +28,13 @@ class TimeSeries(object):
         
     
     def __str__(self):
+        l = ""
         if len(self.values) == 0:
-            return "Empty time series"
-        else:
+            l = "Empty time series"
+        else:    
             for d, v in zip(self.dates, self.values):
-                return "{0} : {1}".format(d, v)
+                l += "{0} : {1}\n".format(d, v)
+        return l
             
             
     def json_date_as_datetime(self):
@@ -88,7 +93,27 @@ class WindTS(TimeSeries):
         """
         pass
     
-    
+
+class RegObsTS(TimeSeries):
+    def __init__(self):
+        super(RegObsTS, self).__init__()
+        self.unit = ""
+        self.name = "RegObs Observation"
+        self.UTMZone = []
+        self.UTMEast = []
+        self.UTMNorth = []
+        
+        
+    def __str__(self):
+        l = ""
+        if len(self.values) == 0:
+            l = "Empty time series"
+        else:    
+            for d, v, z, e, n in zip(self.dates, self.values, self.UTMZone, self.UTMEast, self.UTMNorth):
+                l += "{0} : {1} [UTM zone: {2}, E: {3}, N: {4}]\n".format(d, v, z, e, n)
+        return l
+        
+
 class DangerLevelTS(TimeSeries):    
 
     def __init__(self):
@@ -160,8 +185,8 @@ class DangerLevelTS(TimeSeries):
     #    plt.title('Frequency')
         plt.setp(a, xticks=[], yticks=[])
         
-    #     plt.savefig(title+".png", dpi=300)
+        plt.savefig(title+".png", dpi=300)
     #     plt.savefig(title+".pdf", dpi=600)
-        plt.show()  
+    #    plt.show()  
         
 

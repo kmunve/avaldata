@@ -1,3 +1,5 @@
+# -*- coding:iso-8859-10 -*-
+__doc_format__ = "reStructuredText"
 '''
 Created on 8. mai 2013
 
@@ -7,7 +9,11 @@ Created on 8. mai 2013
 import urllib2
 import json
 import datetime
+
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 
 
 """
@@ -42,7 +48,7 @@ chd=ds=htsre,da=29,id=61410.16,rt=1:00,cht=line,mth=inst| # ???
 
 """
 met_no_stations={'Filefjell':54710,
-                 'Skåbu':13655}
+                 'Skï¿½bu':13655}
 
 def __windrose():
     """ http://sourceforge.net/projects/windrose/ """
@@ -88,7 +94,7 @@ def get_wind_data(verbose=False):
             windspeed.append(item['Value'])
         
         img_src = './windspeed.png'
-        plt.plot(dt, windspeed)
+        #plt.plot(dt, windspeed)
         plt.savefig(img_src)
         
         
