@@ -36,6 +36,7 @@ def getSnowCover():
             shTS.UTMZone.append(item['UTMZone'])
             shTS.UTMEast.append(item['UTMEast'])
             shTS.UTMNorth.append(item['UTMNorth'])
+            shTS.set_regid(item['RegID'])
     
     
     shTS.json_date_as_datetime()

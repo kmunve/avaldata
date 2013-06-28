@@ -99,6 +99,8 @@ class RegObsTS(TimeSeries):
         super(RegObsTS, self).__init__()
         self.unit = ""
         self.name = "RegObs Observation"
+        self.regurl = [] # use set_regid to change variable
+        self.regid = [] # use set_regid to change variable
         self.UTMZone = []
         self.UTMEast = []
         self.UTMNorth = []
@@ -109,10 +111,16 @@ class RegObsTS(TimeSeries):
         if len(self.values) == 0:
             l = "Empty time series"
         else:    
-            for d, v, z, e, n in zip(self.dates, self.values, self.UTMZone, self.UTMEast, self.UTMNorth):
-                l += "{0} : {1} [UTM zone: {2}, E: {3}, N: {4}]\n".format(d, v, z, e, n)
+            for d, v, z, e, n, u in zip(self.dates, self.values, self.UTMZone, self.UTMEast, self.UTMNorth, self.regurl):
+                l += "{0} : {1} [UTM zone: {2}, E: {3}, N: {4}]\nURL: {5}\n".format(d, v, z, e, n, u)
         return l
-        
+
+    def set_regid(self, regid):
+        try:
+            self.regid.append(int(regid))
+            self.regurl.append('http://www.regobs.no/Registration/{0}'.format(self.regid[-1]))
+        except TypeError:
+            print 'The registration ID must be an integer.'
 
 class DangerLevelTS(TimeSeries):    
 
