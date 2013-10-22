@@ -74,7 +74,7 @@ def getSnowSurfaceWetness():
         "IF Is og skare"
         "MFcr Gjenfroset smeltelag"
         "MF Smelteomdannede korn"
-        to retrieve infroamtion about crusts.
+        to retrieve information about crusts.
         """
         wetness_l= [u'Fuktig',
                     u'Våt',
@@ -89,6 +89,7 @@ def getSnowSurfaceWetness():
             shTS.UTMZone.append(item['UTMZone'])
             shTS.UTMEast.append(item['UTMEast'])
             shTS.UTMNorth.append(item['UTMNorth'])
+            shTS.set_regid(item['RegID'])
     
     shTS.json_date_as_datetime()
     print shTS

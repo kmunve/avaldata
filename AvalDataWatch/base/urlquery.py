@@ -112,8 +112,8 @@ class RegobsQuery(UrlQuery):
     """
     def __init__(self):
         super(RegobsQuery, self).__init__()
-#         api_version = "v0.8.7"
-        self.server_root = "http://api.nve.no/hydrology/regobs/v0.8.7/Odata.svc/"
+        api_version = "v0.8.7"
+        self.server_root = "http://api.nve.no/hydrology/regobs/{0}/Odata.svc/".format(api_version)
         self.api_view = "" # used in child classes
         self.filter_str = "?$filter="
         
@@ -170,7 +170,13 @@ class SnowCoverQuery(RegobsQuery):
     def __init__(self):
         super(SnowCoverQuery, self).__init__()
         self.api_view = "SnowCoverObsV"
-        
+
+
+class SnowSurfaceQuery(RegobsQuery):
+    def __init__(self):
+        super(SnowSurfaceQuery, self).__init__()
+        self.api_view = "SnowSurfaceObservationV" # the trailing 'V' calls the View and provides the UTM coordinates
+
         
 class AvalancheWarningQuery(RegobsQuery):
     def __init__(self):

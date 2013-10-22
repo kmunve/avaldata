@@ -97,7 +97,6 @@ class WindTS(TimeSeries):
 class RegObsTS(TimeSeries):
     def __init__(self):
         super(RegObsTS, self).__init__()
-        self.unit = ""
         self.name = "RegObs Observation"
         self.regurl = [] # use set_regid to change variable
         self.regid = [] # use set_regid to change variable
@@ -122,6 +121,39 @@ class RegObsTS(TimeSeries):
         except TypeError:
             print 'The registration ID must be an integer.'
 
+
+class SnowCoverTS(RegObsTS):
+    def __init__(self):
+        super(SnowCoverTS, self).__init__()
+        self.layerdepth = []
+
+    def __str__(self):
+        l = ""
+        if len(self.values) == 0:
+            l = "Empty time series"
+        else:
+            for d, v, ld, z, e, n, u in zip(self.dates, self.values, self.layerdepth, self.UTMZone, self.UTMEast, self.UTMNorth, self.regurl):
+                l += "{0} : {1} @ {2} m [UTM zone: {3}, E: {4}, N: {5}]\nURL: {6}\n".format(d, v, ld, z, e, n, u)
+        return l
+
+
+class SnowSurfaceTS(RegObsTS):
+    def __init__(self):
+        super(SnowSurfaceTS, self).__init__()
+        """ self.values = crystal type """
+        self.snowdepth = []
+        self.lwq = [] # liquid water content
+
+
+    def __str__(self):
+        l = ""
+        if len(self.values) == 0:
+            l = "Empty time series"
+        else:
+            for d, v, ld, lwq, z, e, n, u in zip(self.dates, self.values, self.snowdepth, self.lwq, self.UTMZone, self.UTMEast, self.UTMNorth, self.regurl):
+                l += "{0} : {1}; HS={2}; LWQ={3}; [UTM zone: {4}, E: {5}, N: {6}]\nURL: {7}\n".format(d, unicode.encode(v, 'utf-8'), ld, unicode.encode(lwq, 'utf-8'), z, e, n, u)
+        return l
+
 class DangerLevelTS(TimeSeries):    
 
     def __init__(self):
@@ -145,6 +177,23 @@ class DangerLevelTS(TimeSeries):
     
         self.values = DL_array
         self.dates = validT_clean
+
+######################
+# UNDER CONSTRUCTION #
+######################
+    def number_of_corrections(self):
+        """
+        Compares how and how often the danger level for a date had changed.
+        Needs to be called before 'clean_dates' is called.
+        """
+        DLcorr = []
+
+        for index in range(len(self.dates)):
+            if self.dates[index] in self.dates[:index]:
+                d1 = self.dates[index]
+                v1 = self.values[index]
+                print d1, v1
+                #m = where(self.dates[:index] == d1)
         
     
     def bar_plot(self, title=""):
