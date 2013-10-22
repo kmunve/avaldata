@@ -1,4 +1,4 @@
-# Django settings for AvalWeatherWatch project.
+# Django settings for AvalDataWatch project.
 
 import os.path
 
@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:\\Users\\kmu\\Dev\\PYworkspace\\AvalWeatherWatch\\sqlite.db',                      # Or path to database file if using sqlite3.
+        'NAME': 'C:\\Users\\kmu\\Dev\\PYworkspace\\AvalDataWatch\\sqlite.db',                      # Or path to database file if using sqlite3.
         'USER': 'test',                      # Not used with sqlite3.
         'PASSWORD': 'test',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -50,7 +50,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = "C:/Users/kmu/Dev/PYworkspace/AvalWeatherWatch/AvalWeatherWatch/media/"#os.path.join(os.path.dirname(__file__), 'media')
+MEDIA_ROOT = "C:/Users/kmu/Dev/PYworkspace/AvalDataWatch/AvalDataWatch/media/"#os.path.join(os.path.dirname(__file__), 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -102,12 +102,12 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'AvalWeatherWatch.urls'
+ROOT_URLCONF = 'AvalDataWatch.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'AvalWeatherWatch.wsgi.application'
+WSGI_APPLICATION = 'AvalDataWatch.wsgi.application'
 
-TEMPLATE_DIRS = (#"C:/Users/kmu/Dev/PYworkspace/AvalWeatherWatch/AvalWeatherWatch/templates",
+TEMPLATE_DIRS = (#"C:/Users/kmu/Dev/PYworkspace/AvalDataWatch/AvalDataWatch/templates",
                  os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
